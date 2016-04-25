@@ -14,12 +14,12 @@ def index(request):
 
 def detail(request, question_id):
 	question = get_object_or_404(Question, pk=question_id)
-	try:
-		posted_comment= question.objects.get(pk=request.POST.get['comment',False])
-	except Question.DoesNotExist:
-		raise Http404("Question does not exist")
-	else:
-		posted_comment.save()
+	#try:
+	#	posted_comment= question.objects.get(pk=request.POST.get['comment',False])
+	#except Question.DoesNotExist:
+	#	raise Http404("Question does not exist")
+	#else:
+	#	posted_comment.save()
 	return render(request, 'polls/detail.html', {'question': question})
 
 def results(request, question_id):

@@ -1,4 +1,4 @@
-<a id="top"></a>>
+<a id="top"></a>
 
 <h1>{{ question.question_text }}</h1>
 {% if error_message %}
@@ -13,23 +13,25 @@
 <input type="submit" value="Vote" /><br><br>
 </form>
 
+
+ Name :<br>
 <input type="text" name="name" placeholder ="Name:" id="name" maxlength="50"/><br>
 
 Post a comment :<br>
-<textarea name="comment" rows="5" cols="50" placeholder = "Enter your comment here(Max 80 characters) :" maxlength="80" id="comment" ></textarea>
+<textarea name="comment" rows="5" cols="50" placeholder = "Enter your comment here(Max 80 characters) :" maxlength="80" id="comment"background-color:gold value="abcd"></textarea>
 <br>
 
 <input type="submit" name="Post a comment" value="Post a comment" text-align: center Width="589px"\>
 
-<a href="#top">Go to top</a>
-
+<ul>
+{% for comment in question.comment_set.all %}
+	<li>{{ comment.name }} <br> Posted :{{ comment.comment_text }} </li>
+{% endfor %}
+</ul>
 
 <!-- Begin Comments JavaScript Code -->
 <script type="text/javascript" async>function ajaxpath_571bfce94ab05(url){return window.location.href == '' ? url : url.replace('&s=','&s=' + escape(window.location.href));}(function(){document.write('<div id="fcs_div_571bfce94ab05"><a title="free comment script" href="http://www.freecommentscript.com">&nbsp;&nbsp;<b>Free HTML User Comments</b>...</a></div>');fcs_571bfce94ab05=document.createElement('script');fcs_571bfce94ab05.type="text/javascript";fcs_571bfce94ab05.src=ajaxpath_571bfce94ab05((document.location.protocol=="https:"?"https:":"http:")+"//www.freecommentscript.com/GetComments2.php?p=571bfce94ab05&s=&Size=10#!571bfce94ab05");setTimeout("document.getElementById('fcs_div_571bfce94ab05').appendChild(fcs_571bfce94ab05)",1);})();</script><noscript><div><a href="http://www.freecommentscript.com" title="free html user comment box">Free Comment Script</a></div></noscript><!-- End Comments JavaScript Code -->
 
 
-{% for comment in question.comment_set.all %}
-	<li>{{ comment.comment_text }}</li>
-{% endfor %}
-
+<a href="#top">Go to top</a>
 
